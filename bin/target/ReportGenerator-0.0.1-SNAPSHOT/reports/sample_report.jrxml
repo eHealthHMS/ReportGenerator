@@ -1,0 +1,354 @@
+<!DOCTYPE jasperReport PUBLIC
+"//JasperReports//DTD Report Design//EN"
+"http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="sample_report" >
+<parameter name="hospitalId" class="java.lang.Integer"/>
+<queryString>
+
+<![CDATA[select 
+opd_nursing_patient_details_id 
+serial,
+a.visit_id,
+c.token_no OPNo,
+c.visit_date op_DATE,
+d.hin_no UHID,
+d.p_first_name,
+c.age,
+department_name,
+present_complaint_history,
+past_illness_history,
+present_history,
+family_history,
+madication_history,
+a.hospital_id,
+pulse,
+temperature,
+bp,
+height,
+a.weight,
+a.status  from 
+opd_nursing_patient_details a, mas_department b, visit c , patient d   where a.department_id = b.department_id and a.hospital_id = $P{hospitalId} and a.visit_id = c.visit_id and c.hin_id = d.hin_id order by op_date, opno
+]]>
+</queryString>
+<field name="serial" class="java.lang.Integer"/>
+<field name="visit_id" class="java.lang.Integer"/>
+<field name="OPNo" class="java.lang.Integer"/>
+<field name="op_DATE" class="java.sql.Date"/>
+<field name="UHID" class="java.lang.String"/>
+<field name="p_first_name" class="java.lang.String"/>
+<field name="age" class="java.lang.String"/>
+<field name="department_name" class="java.lang.String"/>
+<field name="present_complaint_history" class="java.lang.String"/>
+<field name="past_illness_history" class="java.lang.String"/>
+<field name="present_history" class="java.lang.String"/>
+<field name="family_history" class="java.lang.String"/>
+<field name="madication_history" class="java.lang.String"/>
+<field name="hospital_id" class="java.lang.Integer"/>
+<field name="pulse" class="java.lang.Integer"/>
+<field name="temperature" class="java.lang.Integer"/>
+<field name="bp" class="java.lang.String"/>
+<field name="height" class="java.lang.Integer"/>
+<field name="weight" class="java.lang.Integer"/>
+<field name="status" class="java.lang.String"/>
+<title>
+    <band height="23">
+      <staticText>
+        <reportElement mode="Opaque" x="0" y="3" width="1710" height="15" 
+        forecolor="#FFFFFF" backcolor="#999999"/>
+        <box>
+               <bottomPen lineWidth = "1.0" lineColor = "#CCCCCC" />
+            </box>
+            <text>
+               <![CDATA[]]>
+            </text>
+        </staticText>
+        <staticText>
+         <reportElement x = "0" y = "3" width = "121" height = "15" />
+ 
+            <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+ 
+        <text><![CDATA[serial]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="70" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[visit_id]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="125" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[OPNo]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="190" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[op_DATE]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="310" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[UHID]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="420" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[p_first_name]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="505" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[age]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="585" y="3" width="121" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[department_name]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="690" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[present_complaint_history]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="870" y="3" width="185" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[past_illness_history]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="985" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[present_history]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1060" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[family_history]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1155" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[madication_history]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1240" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[hospital_id]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1300" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[pulse]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1360" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[temperature]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1420" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[bp]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1480" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[height]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1540" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[weight]]></text>
+      </staticText>
+      <staticText>
+        <reportElement x="1600" y="3" width="181" height="15" />
+       <textElement textAlignment = "Center" verticalAlignment = "Middle">
+               <font isBold = "true" />
+            </textElement>
+        <text><![CDATA[status]]></text>
+      </staticText>
+    </band>
+  </title>
+<detail>
+<band height="27" isSplitAllowed="false">
+<textField>
+<reportElement x="55" y="6" width="173"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.Integer">
+<![CDATA[$F{serial}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="120" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.Integer">
+<![CDATA[$F{visit_id}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="190" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.Integer">
+<![CDATA[$F{OPNo}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="230" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.Integer">
+<![CDATA[$F{op_DATE}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="350" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.Integer">
+<![CDATA[$F{UHID}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="470" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{p_first_name}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="570" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{age}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="635" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{department_name}]]>
+</textFieldExpression>
+</textField>
+<textField isStretchWithOverflow="true">
+<reportElement x="755" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{present_complaint_history}]]>
+</textFieldExpression>
+</textField>
+<textField isStretchWithOverflow="true">
+<reportElement x="880" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{past_illness_history}]]>
+</textFieldExpression>
+</textField>
+<textField isStretchWithOverflow="true">
+<reportElement x="1000" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{present_history}]]>
+</textFieldExpression>
+</textField>
+<textField isStretchWithOverflow="true">
+<reportElement x="1080" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{family_history}]]>
+</textFieldExpression>
+</textField>
+<textField isStretchWithOverflow="true">
+<reportElement x="1172" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{madication_history}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1295" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{hospital_id}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1365" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{pulse}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1415" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{temperature}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1485" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{bp}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1555" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{height}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1625" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{weight}]]>
+</textFieldExpression>
+</textField>
+<textField >
+<reportElement x="1685" y="6" width="100"
+height="18" key="textField"/>
+<textFieldExpression class="java.lang.String">
+<![CDATA[$F{status}]]>
+</textFieldExpression>
+</textField>
+</band>
+</detail>
+</jasperReport>
